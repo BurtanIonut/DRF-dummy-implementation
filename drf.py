@@ -136,12 +136,13 @@ def end_tasks(tasks_remove, cluster):
 
 def main():
 
-    user_A = initiate_user(1, 6, 'A')
-    user_B = initiate_user(3, 1, 'B')
+    #set user demands
+    user_A = initiate_user(1, 4, 'A')
+    user_B = initiate_user(2, 2, 'B')
     user_C = initiate_user(2, 3, 'C')
 
-    cluster = initiate_cluster(12, 28, [user_A, user_B, user_C])
-    #cluster = initiate_cluster(12, 32, [user_A, user_B])
+    #set cluster parameters
+    cluster = initiate_cluster(10, 24, [user_A, user_B, user_C])
 
     print("<<<INITIAL CLUSTER STATUS>>>")
     display_cluster(cluster)
@@ -159,6 +160,7 @@ def main():
         else:
             print("CLUSTER FULL")
             flag = 1
+            #input of the following form: 'A B B'
             remove_tasks = input()
             if remove_tasks == 'end':
                 break
